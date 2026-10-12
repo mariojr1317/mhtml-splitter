@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Extrae HTML y CSS de archivos MHTML o MHT directamente en tu navegador.">
+  <title>MHTML Splitter</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div class="logo" aria-hidden="true">&lt;/&gt;</div>
+      <p class="eyebrow">HERRAMIENTA WEB · PRIVADA</p>
+      <h1>MHTML <span>Splitter</span></h1>
+      <p class="intro">Separa el HTML y el CSS de un archivo MHTML o MHT, directamente en tu navegador.</p>
+    </header>
+
+    <section class="panel">
+      <label class="drop-zone" id="drop-zone" for="file-input">
+        <span class="upload-icon" aria-hidden="true">↑</span>
+        <strong>Selecciona o arrastra tu archivo</strong>
+        <span class="muted">Formatos admitidos: .mhtml y .mht</span>
+        <input id="file-input" type="file" accept=".mhtml,.mht,message/rfc822,application/x-mimearchive">
+      </label>
+      <p id="file-name" class="file-name" aria-live="polite">Ningún archivo seleccionado</p>
+
+      <div class="options">
+        <label class="check"><input id="extract-inline" type="checkbox" checked> Extraer estilos CSS incrustados</label>
+        <label class="check"><input id="keep-html" type="checkbox" checked> Conservar el contenido HTML</label>
+      </div>
+      <button id="extract-btn" class="primary" type="button" disabled>Separar HTML y CSS</button>
+      <p id="status" class="status" role="status">Selecciona un archivo para comenzar.</p>
+    </section>
+
+    <section id="results" class="results" hidden>
+      <div class="section-heading">
+        <div><p class="eyebrow">RESULTADO</p><h2>Archivos extraídos</h2></div>
+        <span id="summary" class="pill">Listo</span>
+      </div>
+      <div class="result-card">
+        <div><span class="file-badge html-badge">HTML</span><strong>index.html</strong><p id="html-info" class="muted">Documento web</p></div>
+        <button id="download-html" class="secondary" type="button">Descargar HTML</button>
+      </div>
+      <div class="result-card">
+        <div><span class="file-badge css-badge">CSS</span><strong>style.css</strong><p id="css-info" class="muted">Hoja de estilos</p></div>
+        <button id="download-css" class="secondary" type="button">Descargar CSS</button>
+      </div>
+      <div class="preview-wrap">
+        <div class="preview-heading"><h3>Vista previa del HTML</h3><span class="muted">Vista aislada</span></div>
+        <iframe id="preview" title="Vista previa del HTML extraído" sandbox=""></iframe>
+      </div>
+      <p class="notice">Nota: MHTML puede incluir imágenes, fuentes y otros recursos. Esta herramienta extrae el HTML y el CSS, pero no reconstruye todos los recursos incrustados ni garantiza que una página compleja se vea idéntica al original.</p>
+    </section>
+
+    <footer><span>Procesamiento local</span><span>·</span><span>Sin subir archivos a un servidor</span></footer>
+  </main>
+</body>
+</html>
